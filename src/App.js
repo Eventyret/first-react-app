@@ -17,7 +17,7 @@ class App extends Component {
   
   getTodos(){
     $.ajax({
-      url: 'https://jsonplaceholder.typicode.com/todos',
+      url: '//jsonplaceholder.typicode.com/todos',
       datatype: 'json',
       cache: false,
       success: function(data){

@@ -13,7 +13,7 @@ class AddProjects extends Component {
     static defaultProps = {
         categories: ['Web Design', 'Web Development', 'Mobile Development']
     }
-    handleSubmit(e){
+    handleSubmit(e) {
         if(this.refs.title.value === '') {
             alert('Title is required');
         } else {
@@ -52,5 +52,10 @@ class AddProjects extends Component {
     );
   }
 }
+
+AddProject.propTypes = {
+    categories: React.PropTypes.array,
+    addProject: React.PropTypes.func
+  }
 
 export default AddProjects;

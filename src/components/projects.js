@@ -7,10 +7,8 @@ class Projects extends Component {
   }
   
   render() {
-    // eslint-disable-next-line
     let projectItems;
     if(this.props.projects){
-      // eslint-disable-next-line
       projectItems = this.props.projects.map(project => {
       return (
         <ProjectItem onDelete={this.DeleteProject.bind(this)} key={project.title} project={project} />
@@ -24,6 +22,11 @@ class Projects extends Component {
       </div>
     );
   }
+}
+
+Projects.propTypes = {
+  projects: React.PropTypes.array,
+  onDelete: React.PropTypes.func
 }
 
 export default Projects;

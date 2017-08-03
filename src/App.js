@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import uuid from 'uuid';
+import $ from 'jquery';
 import Projects from './components/Projects';
 import AddProject from './components/AddProject';
 
@@ -8,11 +9,28 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      projects: []
+      projects: [],
+      todos: []
     }
   }
+  
+  getTodos(){
+    $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/todos',
+      datatype: 'json',
+      cache: false,
+      success: function(data){
+        this.setState({todos: data}, function() {
+          console.log(this.state);
+        });
+      }.bind(this),
+      error: function(xhr,status,err){
+        console.log(err);
+      }
+    });
+  }
 
-  componentWillMount(){
+  getProjects() {
     this.setState({projects: [
       {
         id:uuid.v4(),
@@ -30,8 +48,18 @@ class App extends Component {
         category: 'Web Development'
       }
     ]});
+  }
+
+  componentWillMount(){
+    this.getProjects();
+    this.getTodos();
 
   } 
+
+compnentDidMount(){
+  this.getTodos();
+};
+
   handleAddProject(project){
     let projects = this.state.projects;
     projects.push(project);

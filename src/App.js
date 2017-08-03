@@ -4,6 +4,7 @@ import uuid from 'uuid';
 import $ from 'jquery';
 import Projects from './components/Projects';
 import AddProject from './components/AddProject';
+import Todos from './components/Todos';
 
 class App extends Component {
   constructor(){
@@ -77,6 +78,9 @@ compnentDidMount(){
       <div className="App">
           <AddProject addProject={this.handleAddProject.bind(this)} /> 
           <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />
+          <hr />
+          <h4>Generated from Jsonplaceholder</h4>
+          <Todos todos={this.state.todos} />
       </div>
     );
   }

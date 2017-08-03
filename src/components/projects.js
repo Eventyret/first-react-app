@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ProjectItem from './ProjectItem';
 
 class Projects extends Component {
+  DeleteProject(id) {
+    this.props.onDelete(id);
+  }
   
   render() {
     // eslint-disable-next-line
@@ -10,7 +13,7 @@ class Projects extends Component {
       // eslint-disable-next-line
       projectItems = this.props.projects.map(project => {
       return (
-        <ProjectItem key={project.title} project={project} />
+        <ProjectItem onDelete={this.DeleteProject.bind(this)} key={project.title} project={project} />
       );
       });
     }

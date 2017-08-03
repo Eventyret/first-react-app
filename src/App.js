@@ -22,7 +22,7 @@ class App extends Component {
       cache: false,
       success: function(data){
         this.setState({todos: data}, function() {
-          console.log(this.state);
+         // console.log(this.state); // This is now working
         });
       }.bind(this),
       error: function(xhr,status,err){

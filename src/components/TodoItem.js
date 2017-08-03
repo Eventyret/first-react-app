@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
   render() {
-    console.log(this.props)
+   // console.log(this.props) // This is working
     return (
       <li className="Todo">
           <strong>{this.props.todo.title}</strong>
